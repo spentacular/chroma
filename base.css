@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', 'Source Code Pro', Consolas, monospace;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body > div {
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 1em;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: .1em;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+hr {
+  border: 0px;
+  border-top: 1px solid #ddd;
+  margin: 1.5em 0;
+}
+
+code {
+  background-color: #333;
+  color: #fff;
+  padding: .1em .4em;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 85%;
+  border-radius: 3px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: .5em;
+}
+
+.gray {
+  color: #B9BFC1;
+}
+
+.sml {
+  font-size: 80%;
+}
+
+.fw-300 {
+  font-weight: normal;
+}
+
+.lh1 {
+  line-height: 1;
+}
+
+/* HEADER POSITION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.header {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .1);
+  padding: 1em;
+  width: 100%;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  z-index: 2;
+}
+
+/* ALIGNMENT/GRID
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.w40 {
+  width: 40%;
+}
+
+.ml1 { margin-left: 0.5em; }
+.mb0 { margin-bottom: 0; }
+
+/* HUE SLIDER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hue {
+  position: relative;
+  height: 10px;
+}
+
+.hue > div {
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.hue-pointer {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-left: -5px;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  transition: all .1s cubic-bezier(0, 0, 0.4, 1);
+}
+
+.hue-pointer:hover {
+  transform: scale(1.25);
+}
+
+.hue-pointer:active {
+  transform: scale(1.5);
+}
+
+/* Saturation Box
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.saturation {
+  height: calc(100vh - 50px);
+  position: relative;
+}
+
+.saturation-pointer {
+  width: 16px;
+  height: 16px;
+  transform: translate(-8px, -8px);
+  border-radius: 50%;
+  border: 1px solid #fff;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
+/* ACTIVE COLOR
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.color-overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.active div {
+  background: transparent !important;
+}
+
+/* COLOR VALUE/COPY
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.color-input {
+  padding: .25em .5em;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 2px;
+  color: #8C8C8C;
+  background-color: transparent;
+  border: 0px;
+  line-height: 1;
+}
+
+.color-input:hover {
+  background-color: #ECECEC;
+}
+
+.color-input:active {
+  background-color: #ddd;
+}
+
+.color-input:focus {
+  outline: 0;
+}
+
+/* ICONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.share {
+  background: url('/imgs/share.svg') no-repeat center center;
+}
+
+.info {
+  background: url('/imgs/ribbon.svg') no-repeat center center;
+}
+
+.icon {
+  background-size: 18px 18px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  border: 0px;
+}
+
+.icon:focus {
+  outline: 0;
+}
