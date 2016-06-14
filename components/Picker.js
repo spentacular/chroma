@@ -179,6 +179,7 @@ class Picker extends React.Component {
                       <li><code>Space</code> - Focus active color</li>
                       <li><code>Scroll</code> - Adjust hue</li>
                       <li><code>Scroll + Shift</code> - Minor adjust hue</li>
+                      <li><code>Control</code> - Toggle color type</li>
                     </ul>
                     <hr />
                     <p className='mb0 sml'><a href='https://github.com/spentacular/chroma' style={activeHue}>View on GitHub</a></p>
