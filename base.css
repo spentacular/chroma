@@ -107,12 +107,28 @@ li {
   justify-content: space-between;
 }
 
-.w40 {
-  width: 40%;
-}
+.justify-end { justify-content: flex-end; }
+
+.w40 { width: 40%; }
+.w20 { width: 20%; }
 
 .ml1 { margin-left: 0.5em; }
 .mb0 { margin-bottom: 0; }
+
+.col-left {
+  flex: 1;
+  max-width: 20%;
+}
+
+.col-mid {
+  flex: 3;
+  max-width: 50%;
+}
+
+.col-right {
+  flex: 1;
+  max-width: 20%;
+}
 
 /* HUE SLIDER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -200,20 +216,37 @@ li {
   outline: 0;
 }
 
-/* ICONS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.share {
-  background: url('/imgs/share.svg') no-repeat center center;
+.active-value-name {
+  text-transform: uppercase;
+  margin-left: .4em;
+  margin-right: .4em;
+  color: #ADB1B3;
+  font-weight: bold;
+  line-height: 1;
 }
 
+.active-value-nums {
+  padding: .25em .5em;
+  font-size: 1em;
+  font-weight: 500;
+  color: #4A4A4A;
+  line-height: 1;
+}
+
+/* ICONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .info {
-  background: url('/imgs/ribbon.svg') no-repeat center center;
+  background: url('/imgs/info.svg') no-repeat center center;
+}
+
+.copy {
+  background: url('/imgs/copy.svg') no-repeat center center;
 }
 
 .icon {
-  background-size: 18px 18px;
-  width: 20px;
-  height: 20px;
+  background-size: 16px 16px;
+  width: 18px;
+  height: 18px;
   display: block;
   border: 0px;
 }
@@ -221,3 +254,7 @@ li {
 .icon:focus {
   outline: 0;
 }
+
+.dim { opacity: 1; transition: opacity .15s ease-in; }
+.dim:hover, .dim:focus { opacity: .7; transition: opacity .15s ease-in; }
+.dim:active { opacity: .85; transition: opacity .15s ease-out; }

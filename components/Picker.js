@@ -7,12 +7,13 @@ import Modal from 'react-modal'
 import data from '../src/data'
 
 class Picker extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       data: [],
       isActive: false,
-      infoIsOpen: false
+      infoIsOpen: false,
+      activeValue: 'hex'
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -20,6 +21,7 @@ class Picker extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.handleActiveColor = this.handleActiveColor.bind(this)
     this.openInfo = this.openInfo.bind(this)
     this.closeInfo = this.closeInfo.bind(this)
   }
@@ -79,6 +81,10 @@ class Picker extends React.Component {
     if (event.keyCode === 32) {
       this.setState({isActive: false})
     }
+
+    if (event.keyCode === 17) {
+      this.handleActiveColor()
+    }
   }
 
   openInfo () {
@@ -87,6 +93,24 @@ class Picker extends React.Component {
 
   closeInfo () {
     this.setState({infoIsOpen: false})
+  }
+
+  handleActiveColor (event) {
+    let currentActive = this.state.activeValue
+
+    switch (currentActive) {
+      case 'hex':
+        this.setState({activeValue: 'hsl'})
+        break
+      case 'hsl':
+        this.setState({activeValue: 'rgb'})
+        break
+      case 'rgb':
+        this.setState({activeValue: 'hex'})
+        break
+      default:
+        this.setState({activeValue: 'hex'})
+    }
   }
 
   render () {
@@ -102,7 +126,16 @@ class Picker extends React.Component {
       activeClass = 'inactive'
     }
 
-    const hexValue = this.props.hex.toUpperCase()
+    let topColor
+    if (this.state.activeValue === 'hex') {
+      topColor = this.props.hex.toUpperCase()
+    } else if (this.state.activeValue === 'hsl') {
+      topColor = `${Math.round(this.props.hsl.h)},${Math.round(this.props.hsl.s * 100)}%,${Math.round(this.props.hsl.l * 100)}%`
+    } else if (this.state.activeValue === 'rgb') {
+      topColor = `${this.props.rgb.r},${this.props.rgb.g},${this.props.rgb.b}`
+    } else {
+      topColor = this.props.hex.toUpperCase()
+    }
 
     const activeHue = {
       color: `hsl(${this.props.hsl.h}, 100%, 30%)`
@@ -128,7 +161,7 @@ class Picker extends React.Component {
     return (
       <div>
         <div className='header flex items-center justify-between'>
-          <div>
+          <div className='col-left'>
             <div className='flex items-center'>
               <h1 style={activeHue}>{data.name} <span className='sml fw-300'>{data.version}</span></h1>
               <div className='ml1'>
@@ -154,15 +187,19 @@ class Picker extends React.Component {
               </div>
             </div>
           </div>
-          <div className='col w40'>
+          <div className='col-mid'>
             <div className='hue'>
               <Hue {...this.props} pointer={HuePointer} onChange={this.handleChange} />
             </div>
           </div>
-          <div>
-            <div className='flex items-center'>
-              <ClipboardButton className='color-input' data-clipboard-text={hexValue}>
-                {hexValue}
+          <div className='col-right'>
+            <div className='flex items-center justify-end'>
+              <div className='lh1 active-value-nums'>
+                {topColor}
+              </div>
+              <span className='dim active-value-name' onClick={this.handleActiveColor}>{this.state.activeValue}</span>
+              <ClipboardButton className='color-input' data-clipboard-text={topColor}>
+                <button src='/imgs/copy.svg' className='copy icon' />
               </ClipboardButton>
             </div>
           </div>
