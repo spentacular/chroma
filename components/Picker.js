@@ -194,12 +194,12 @@ class Picker extends React.Component {
             </div>
           </div>
           <div className='col-right'>
-            <div className='flex items-center justify-end'>
-              <div className='lh1 active-value-nums'>
+            <div className='flex items-center justify-end ta-r'>
+              <div className='lh1 active-value-nums ta-r'>
                 {topColor}
               </div>
-              <span className='dim active-value-name' onClick={this.handleActiveColor}>{this.state.activeValue}</span>
-              <ClipboardButton className='color-input' data-clipboard-text={topColor}>
+              <span className='dim active-value-name ta-r' onClick={this.handleActiveColor}>{this.state.activeValue}</span>
+              <ClipboardButton className='color-input ta-r' data-clipboard-text={topColor}>
                 <button src='/imgs/copy.svg' className='copy icon' />
               </ClipboardButton>
             </div>

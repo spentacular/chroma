@@ -78,6 +78,8 @@ li {
   line-height: 1;
 }
 
+.ta-r { text-align: right; }
+
 /* HEADER POSITION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .header {
