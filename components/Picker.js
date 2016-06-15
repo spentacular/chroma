@@ -19,6 +19,7 @@ class Picker extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleWheel = this.handleWheel.bind(this)
     this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
     this.handleActiveColor = this.handleActiveColor.bind(this)
@@ -37,12 +38,12 @@ class Picker extends React.Component {
 
   handleMouseDown (event) {
     event.preventDefault()
-
     this.setState({isActive: true})
+  }
 
-    window.addEventListener('mouseup', () => {
-      this.setState({isActive: false})
-    })
+  handleMouseUp (event) {
+    event.preventDefault()
+    this.setState({isActive: false})
   }
 
   handleWheel (event) {
@@ -74,6 +75,18 @@ class Picker extends React.Component {
     if (event.keyCode === 32) {
       this.setState({isActive: true})
     }
+
+    // from https://github.com/WickyNilliams/react-clipboard
+    var metaKeyIsDown = (event.ctrlKey || event.metaKey)
+    var textIsSelected = window.getSelection().toString()
+
+    if (!metaKeyIsDown || textIsSelected) {
+      return
+    } else if (metaKeyIsDown) {
+      let element = this.refs.currentValue
+      element.focus()
+      element.select()
+    }
   }
 
   handleKeyUp (event) {
@@ -82,9 +95,12 @@ class Picker extends React.Component {
       this.setState({isActive: false})
     }
 
-    if (event.keyCode === 17) {
+    if (event.keyCode === 18) {
       this.handleActiveColor()
     }
+
+    let element = this.refs.currentValue
+    element.blur()
   }
 
   openInfo () {
@@ -179,7 +195,8 @@ class Picker extends React.Component {
                       <li><code>Space</code> - Focus active color</li>
                       <li><code>Scroll</code> - Adjust hue</li>
                       <li><code>Scroll + Shift</code> - Minor adjust hue</li>
-                      <li><code>Control</code> - Toggle color type</li>
+                      <li><code>Option/Alt</code> - Toggle color type</li>
+                      <li><code>Cmd/Ctrl + C</code> - Copy active color</li>
                     </ul>
                     <hr />
                     <p className='mb0 sml'><a href='https://github.com/spentacular/chroma' style={activeHue}>View on GitHub</a></p>
@@ -200,17 +217,18 @@ class Picker extends React.Component {
               </div>
               <span className='dim active-value-name ta-r' onClick={this.handleActiveColor}>{this.state.activeValue}</span>
               <ClipboardButton className='color-input ta-r' data-clipboard-text={topColor}>
-                <button src='/imgs/copy.svg' className='copy icon' />
+                <span className='copy icon' />
               </ClipboardButton>
             </div>
           </div>
         </div>
-        <div className='saturation' onMouseDown={this.handleMouseDown} onWheel={this.handleWheel}>
+        <div className='saturation' onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onWheel={this.handleWheel}>
           <div className='color-overlay' style={overlayColor}></div>
           <div className={activeClass}>
             <Saturation {...this.props} pointer={SaturationPointer} onChange={this.handleChange} />
           </div>
         </div>
+        <input value={topColor} onChange={this.handleChange} ref='currentValue' className='hidden' />
       </div>
     )
   }
