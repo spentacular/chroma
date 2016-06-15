@@ -124,7 +124,7 @@ li {
 
 .col-mid {
   flex: 3;
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .col-right {
@@ -142,7 +142,7 @@ li {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .hue {
   position: relative;
-  height: 8px;
+  height: .5em;
 }
 
 .hue > div {
@@ -178,11 +178,11 @@ li {
 }
 
 .saturation-pointer {
-  width: 1em;
-  height: 1em;
-  transform: translate(-.5em, -.5em);
+  width: .5em;
+  height: .5em;
+  transform: translate(-.25em, -.25em);
   border-radius: 50%;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   background: transparent;
 }
@@ -234,7 +234,7 @@ li {
   margin-left: .2em;
   margin-right: .2em;
   color: #ADB1B3;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 1;
 }
 
