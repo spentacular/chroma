@@ -163,8 +163,8 @@ class Picker extends React.Component {
         <div className='header flex items-center justify-between'>
           <div className='col-left'>
             <div className='flex items-center'>
-              <h1 style={activeHue}>{data.name} <span className='sml fw-300'>{data.version}</span></h1>
-              <div className='ml1'>
+              <h1 style={activeHue} className='logo'>{data.name} <span className='sml fw-300'>{data.version}</span></h1>
+              <div>
                 <button className='info icon' onMouseUp={this.openInfo}></button>
                 <Modal
                   isOpen={this.state.infoIsOpen}
@@ -195,7 +195,7 @@ class Picker extends React.Component {
           </div>
           <div className='col-right'>
             <div className='flex items-center justify-end ta-r'>
-              <div className='lh1 active-value-nums ta-r'>
+              <div className='lh1 active-value-nums ta-r p1'>
                 {topColor}
               </div>
               <span className='dim active-value-name ta-r' onClick={this.handleActiveColor}>{this.state.activeValue}</span>
