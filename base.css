@@ -157,9 +157,8 @@ li {
   background-color: #fff;
   margin-top: -4px;
   margin-left: -8px;
-  border: 1px solid rgba(0, 0, 0, 0.35);
   transition: all .1s cubic-bezier(0, 0, 0.4, 1);
-  box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
 }
 
 .hue-pointer:hover {
