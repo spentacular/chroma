@@ -92,6 +92,7 @@ li {
   right: 0px;
   height: 50px;
   z-index: 2;
+  overflow: hidden;
 }
 
 /* ALIGNMENT/GRID
@@ -203,7 +204,7 @@ li {
 /* COLOR VALUE/COPY
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .color-input {
-  padding: 1em;
+  padding: 1.25em;
   font-size: 1em;
   font-weight: 500;
   border-radius: 2px;
@@ -228,11 +229,12 @@ li {
 }
 
 .active-value-name {
+  padding: .25em .5em;
   text-transform: uppercase;
-  margin-left: .4em;
-  margin-right: .4em;
+  margin-left: .2em;
+  margin-right: .2em;
   color: #ADB1B3;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1;
 }
 
