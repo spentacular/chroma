@@ -8,13 +8,13 @@ Chroma is a color picker built using [React Color](https://github.com/casesandbe
 
 ## Todo
 
+- [x] `cmd/ctrl + c` copies color
 - [ ] Figure out Webpack bundling
 - [ ] Add ability to save colors
-- [ ] Add ability to copy in other color formats (rgb/hsl)
+- [x] Add ability to copy in other color formats (rgb/hsl)
 - [ ] Add dark/light contrast option
 - [ ] Offline support
 - [ ] Make scroll shifting more performant
-- [ ] `cmd/ctrl + c` copies color
 - [ ] `cmd/ctrl + p` pastes color (that would be so cool)
 - [ ] Better random colors
 - [ ] Option to randomly select a color
