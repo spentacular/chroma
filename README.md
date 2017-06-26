@@ -1,5 +1,7 @@
 # Chroma
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/spentacular/chroma.svg)](https://greenkeeper.io/)
+
 A color picker that focuses on color selection
 
 ## About
